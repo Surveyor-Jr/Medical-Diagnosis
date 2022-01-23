@@ -1,0 +1,141 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <div class="container">
+        <!-- Some instructions -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <strong>Usage Instructions:</strong>
+                <br>
+                <p>Enter in all required information in the fields provided. Click <strong>Run Diagnosis</strong> and
+                    check for results</p>
+                <div class="alert alert-info" role="alert">
+                    As much as I have spent time building this tool, I will always advise you to seek official medical care from your Doctor
+                </div>
+            </div>
+        </div>
+        <!-- End of Instructions -->
+        <div class="row mb-3">
+            <div class="col-6 col-md-4 themed-grid-col">
+                <h3>Symptoms</h3>
+                <form method="post">
+                    {% csrf_token %}
+                    <!-- Male or Female -->
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                               value="female">
+                        <label class="form-check-label" for="inlineRadio1">Female</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                               value="male">
+                        <label class="form-check-label" for="inlineRadio2">Male</label>
+                    </div>
+                    <!-- End Male or Female -->
+                    <!-- Input Birth Year --><br>
+                    <label for="inputPassword5" class="form-label">Your Age</label>
+                    <input type="number" name="age" id="age" class="form-control" required>
+                    <div id="passwordHelpBlock" class="form-text">
+                        Enter your age (i.e. 22)
+                    </div>
+                    <!-- End Birth Year -->
+
+                    <!-- Select Symptoms --><br>
+                    <h6>Symptoms Check</h6>
+                    <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="symptoms"
+                            id="symptoms" onchange="show(this)" required>
+                        <option selected>Select Symptoms</option>
+                    </select>
+                    <br>
+                    <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="symptoms_1"
+                            id="symptoms_1" onchange="show(this)">
+                        <option selected>Select Symptoms</option>
+                    </select>
+                    <br>
+                    <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="symptoms_2"
+                            id="symptoms_2" onchange="show(this)">
+                        <option selected>Select Symptoms</option>
+                    </select>
+                    {#                    <p id="msg"></p>#}
+                    <!-- End Select Symptoms --><br>
+                    <button type="submit" class="btn btn-primary">Diagnose</button>
+                </form>
+            </div>
+            <div class="col-md-8 themed-grid-col">
+                <h3>Patient Diagnosis Results</h3>
+                <!-- no diagnosis message -->
+                {% if name == None %}
+                    <div class="alert alert-primary" role="alert">
+                        Add symptoms and required information to see your diagnosis
+                    </div>
+                {% endif %}
+                <!-- end no diagnosis message -->
+                <!-- diagnosis results -->
+                {% if name %}
+                    <div class="card w-75">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ name }}</h5>
+                            <p>Professional Name: <strong>{{ pro_name }}</strong></p>
+                            <p class="card-text">{{ icd_name }}</p>
+                            <a href="#" class="btn btn-primary">Find Specialist</a>
+                        </div>
+                    </div>
+                {% endif %}
+                <!-- end diagnosis results -->
+            </div>
+        </div>
+    </div>
+
+    <div class="b-example-divider"></div>
+
+    <script>
+        window.onload = populateSelect();
+
+        function populateSelect() {
+
+            // CREATE AN XMLHttpRequest OBJECT, WITH GET METHOD.
+            var xhr = new XMLHttpRequest(),
+                method = 'GET',
+                overrideMimeType = 'application/json',
+                url = 'https://api.jsonbin.io/b/61ed5a0d5c8caf43a69bcf7b';        // ADD THE URL OF THE FILE.
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+
+                    // PARSE JSON DATA.
+                    var birds = JSON.parse(xhr.responseText);
+
+                    var ele = document.getElementById('symptoms');
+                    for (var i = 0; i < birds.length; i++) {
+                        // BIND DATA TO <select> ELEMENT.
+                        ele.innerHTML = ele.innerHTML +
+                            '<option value="' + birds[i].ID + '">' + birds[i].Name + '</option>';
+                    }
+
+                    var ele = document.getElementById('symptoms_1');
+                    for (var i = 0; i < birds.length; i++) {
+                        // BIND DATA TO <select> ELEMENT.
+                        ele.innerHTML = ele.innerHTML +
+                            '<option value="' + birds[i].ID + '">' + birds[i].Name + '</option>';
+                    }
+
+                    var ele = document.getElementById('symptoms_2');
+                    for (var i = 0; i < birds.length; i++) {
+                        // BIND DATA TO <select> ELEMENT.
+                        ele.innerHTML = ele.innerHTML +
+                            '<option value="' + birds[i].ID + '">' + birds[i].Name + '</option>';
+                    }
+                }
+            };
+            xhr.open(method, url, true);
+            xhr.send();
+        }
+
+        {#function show(ele) {#}
+        {#    // GET THE SELECTED VALUE FROM <select> ELEMENT AND SHOW IT.#}
+        {#    var msg = document.getElementById('msg');#}
+        {#    msg.innerHTML = 'Selected Bird: <b>' + ele.options[ele.selectedIndex].text + '</b> </br>' +#}
+        {#        'ID: <b>' + ele.value + '</b>';#}
+    </script>
+
+{% endblock %}

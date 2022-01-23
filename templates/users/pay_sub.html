@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <h5>30-Day Diagnosis Subscription</h5>
+                <!-- Payment form -->
+                <form method="post">
+                    {% csrf_token %}
+                    <!-- Email input -->
+                    <div class="mb-4">
+                        {{ form|crispy }}
+                    </div>
+
+                    <!-- Submit button -->
+                    <button type="submit" class="btn btn-primary btn-block">Make Payment</button>
+                </form>
+                <!-- End Payment Form -->
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <div class="container">
+        <!-- Account Status Panel -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <h4>Account Status</h4>
+                <div class="alert alert-danger d-flex align-items-center" role="alert">
+                    <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:">
+                        <use xlink:href="#exclamation-triangle-fill"/>
+                    </svg>
+                    <div>
+                        Your account does not currently have an active plan. <a href="#">Top-Up your account</a> today.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Account Status Panel -->
+        <div class="row">
+            <div class="col-sm-6 col-md-5 col-lg-6">
+                <h4>Billing History</h4>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Reference Code</th>
+                        <th scope="col">Paid On</th>
+                        <th scope="col">Expiry Date</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for bill in billing %}
+                        <tr>
+                            <th scope="row">{{ bill.id }}</th>
+                            <td>{{ bill.reference_code }}</td>
+                            <td>{{ bill.paid_on }}</td>
+                            <td>{{ bill.expire_date }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-sm-6 col-md-5 offset-md-2 col-lg-6 offset-lg-0">
+                <h4>Payment Instructions</h4>
+                <!-- Payment Details -->
+                <ul class="list-group list-group-flush mb-4">
+                    <li class="list-group-item">Payment is only done on a monthly basis</li>
+                    <li class="list-group-item">Each payment subscription is only valid for 30-days</li>
+                    <li class="list-group-item">It is advised to make the payment once the current subscription has ended</li>
+                    <li class="list-group-item">The system does not offer refunds</li>
+                    <li class="list-group-item"><mark>We are currently in testing phase so please bare in mind that this service is not yet in full swing</mark></li>
+                </ul>
+                <!-- End Payment Instructions -->
+                <a href="{% url 'make-payment' %}" class="btn btn-success active">Pay 30-Day Subscription</a>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

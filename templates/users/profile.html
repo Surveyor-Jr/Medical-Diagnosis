@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                {% include 'users/profile_side_menu.html' %}
+            </div>
+            <div class="col-sm-8">
+                <h3>Profile Information</h3>
+                <img src="https://media.istockphoto.com/vectors/emoji-in-face-mask-vector-id1218431320?k=20&m=1218431320&s=612x612&w=0&h=rkjaS1v8QjFaYpvqiTohEa8r4SAJgQyVHZ-Kj-pIzV0="
+                     class="rounded-circle"
+                     alt="..."
+                     height="75"
+                     width="75">
+                <h5>Personal Information</h5>
+                <p class="lead">E-mail: {{ user.email }}</p>
+                {% if user.first_name and user_last_name == 'None' %}
+                    <div class="alert alert-primary" role="alert">
+                        You do not seem to have a name <a href="#" class="alert-link">Edit Profile</a>.
+                    </div>
+                {% else %}
+                    <p class="lead">First-Name: {{ user.first_name }}</p>
+                    <p class="lead">Last-Name: {{ user.last_name }}</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}

@@ -1,0 +1,272 @@
+[
+  {
+    "Issue": {
+      "ID": 443,
+      "Name": "Poisoning",
+      "Accuracy": 90,
+      "Icd": "T36;T37;T38;T39;T40;T41;T42;T43;T44;T45;T46;T47;T48;T49;T50",
+      "IcdName": "Poisoning by systemic antibiotics;Poisoning by other systemic anti-infectives and antiparasitics;Poisoning by hormones and their synthetic substitutes and antagonists, not elsewhere classified;Poisoning by nonopioid analgesics, antipyretics and antirheumatics;Poisoning by narcotics and psychodysleptics [hallucinogens];Poisoning by anaesthetics and therapeutic gases;Poisoning by antiepileptic, sedative-hypnotic and antiparkinsonism drugs;Poisoning by psychotropic drugs, not elsewhere classified;Poisoning by drugs primarily affecting the autonomic nervous system;Poisoning by primarily systemic and haematological agents, not elsewhere classified;Poisoning by agents primarily affecting the cardiovascular system;Poisoning by agents primarily affecting the gastrointestinal system;Poisoning by agents primarily acting on smooth and skeletal muscles and the respiratory system;Poisoning by topical agents primarily affecting skin and mucous membrane and by ophthalmological, otorhinolaryngological and dental drugs;Poisoning by diuretics and other and unspecified drugs, medicaments and biological substances",
+      "ProfName": "Intoxication",
+      "Ranking": 1
+    },
+    "Specialisation": [
+      {
+        "ID": 15,
+        "Name": "General practice",
+        "SpecialistID": 3
+      },
+      {
+        "ID": 19,
+        "Name": "Internal medicine",
+        "SpecialistID": 4
+      }
+    ]
+  },
+  {
+    "Issue": {
+      "ID": 579,
+      "Name": "Confusional state",
+      "Accuracy": 89.1428452,
+      "Icd": "F05",
+      "IcdName": "Delirium, not induced by alcohol and other psychoactive substances",
+      "ProfName": "Delirium",
+      "Ranking": 2
+    },
+    "Specialisation": [
+      {
+        "ID": 15,
+        "Name": "General practice",
+        "SpecialistID": 3
+      },
+      {
+        "ID": 19,
+        "Name": "Internal medicine",
+        "SpecialistID": 4
+      },
+      {
+        "ID": 36,
+        "Name": "Psychiatry",
+        "SpecialistID": 62
+      }
+    ]
+  },
+  {
+    "Issue": {
+      "ID": 445,
+      "Name": "Imbalance of body minerals",
+      "Accuracy": 85.71428,
+      "Icd": "E87",
+      "IcdName": "Other disorders of fluid, electrolyte and acid-base balance",
+      "ProfName": "Electrolyte imbalance",
+      "Ranking": 3
+    },
+    "Specialisation": [
+      {
+        "ID": 15,
+        "Name": "General practice",
+        "SpecialistID": 3
+      },
+      {
+        "ID": 19,
+        "Name": "Internal medicine",
+        "SpecialistID": 4
+      },
+      {
+        "ID": 26,
+        "Name": "Nephrology",
+        "SpecialistID": 47
+      }
+    ]
+  },
+  {
+    "Issue": {
+      "ID": 271,
+      "Name": "High blood pressure crisis",
+      "Accuracy": 77.1428452,
+      "Icd": "I10",
+      "IcdName": "Essential (primary) hypertension",
+      "ProfName": "Hypertensive crisis",
+      "Ranking": 4
+    },
+    "Specialisation": [
+      {
+        "ID": 15,
+        "Name": "General practice",
+        "SpecialistID": 3
+      },
+      {
+        "ID": 19,
+        "Name": "Internal medicine",
+        "SpecialistID": 4
+      }
+    ]
+  },
+  {
+    "Issue": {
+      "ID": 432,
+      "Name": "Heart failure",
+      "Accuracy": 26.5714245,
+      "Icd": "I50",
+      "IcdName": "Heart failure",
+      "ProfName": "Cardiac failure",
+      "Ranking": 5
+    },
+    "Specialisation": [
+      {
+        "ID": 1,
+        "Name": "Cardiology",
+        "SpecialistID": 25
+      },
+      {
+        "ID": 15,
+        "Name": "General practice",
+        "SpecialistID": 3
+      },
+      {
+        "ID": 19,
+        "Name": "Internal medicine",
+        "SpecialistID": 4
+      }
+    ]
+  },
+  {
+    "Issue": {
+      "ID": 182,
+      "Name": "Aneurysm of the main artery",
+      "Accuracy": 25.7142849,
+      "Icd": "I71",
+      "IcdName": "Aortic aneurysm and dissection",
+      "ProfName": "Aortic aneurysm",
+      "Ranking": 6
+    },
+    "Specialisation": [
+      {
+        "ID": 7,
+        "Name": "Angiology",
+        "SpecialistID": 17
+      },
+      {
+        "ID": 15,
+        "Name": "General practice",
+        "SpecialistID": 3
+      },
+      {
+        "ID": 19,
+        "Name": "Internal medicine",
+        "SpecialistID": 4
+      }
+    ]
+  },
+  {
+    "Issue": {
+      "ID": 57,
+      "Name": "Narrowing of the aortic valve",
+      "Accuracy": 21.42857,
+      "Icd": "I35.0;I06.0;Q23.0",
+      "IcdName": "Aortic (valve) stenosis;Rheumatic aortic stenosis;Congenital stenosis of aortic valve",
+      "ProfName": "Aortic stenosis",
+      "Ranking": 7
+    },
+    "Specialisation": [
+      {
+        "ID": 1,
+        "Name": "Cardiology",
+        "SpecialistID": 25
+      },
+      {
+        "ID": 15,
+        "Name": "General practice",
+        "SpecialistID": 3
+      }
+    ]
+  },
+  {
+    "Issue": {
+      "ID": 183,
+      "Name": "Dissection of the aorta",
+      "Accuracy": 21.42857,
+      "Icd": "I71.0",
+      "IcdName": "Dissection of aorta [any part]",
+      "ProfName": "Aortic dissection",
+      "Ranking": 8
+    },
+    "Specialisation": [
+      {
+        "ID": 7,
+        "Name": "Angiology",
+        "SpecialistID": 17
+      },
+      {
+        "ID": 15,
+        "Name": "General practice",
+        "SpecialistID": 3
+      },
+      {
+        "ID": 19,
+        "Name": "Internal medicine",
+        "SpecialistID": 4
+      },
+      {
+        "ID": 39,
+        "Name": "Surgery",
+        "SpecialistID": 13
+      }
+    ]
+  },
+  {
+    "Issue": {
+      "ID": 437,
+      "Name": "Inflammation of the pericardium",
+      "Accuracy": 17.1428566,
+      "Icd": "I01.0;I09.2;I30;I31;I32",
+      "IcdName": "Acute rheumatic pericarditis;Chronic rheumatic pericarditis;Acute pericarditis;Other diseases of pericardium;Pericarditis in diseases classified elsewhere",
+      "ProfName": "Pericarditis",
+      "Ranking": 9
+    },
+    "Specialisation": [
+      {
+        "ID": 1,
+        "Name": "Cardiology",
+        "SpecialistID": 25
+      },
+      {
+        "ID": 15,
+        "Name": "General practice",
+        "SpecialistID": 3
+      },
+      {
+        "ID": 19,
+        "Name": "Internal medicine",
+        "SpecialistID": 4
+      }
+    ]
+  },
+  {
+    "Issue": {
+      "ID": 189,
+      "Name": "Peripheral artery disease",
+      "Accuracy": 9.428571,
+      "Icd": "I73.9",
+      "IcdName": "Peripheral vascular disease, unspecified",
+      "ProfName": "Peripheral artery occlusive disease",
+      "Ranking": 10
+    },
+    "Specialisation": [
+      {
+        "ID": 7,
+        "Name": "Angiology",
+        "SpecialistID": 17
+      },
+      {
+        "ID": 15,
+        "Name": "General practice",
+        "SpecialistID": 3
+      },
+      {
+        "ID": 39,
+        "Name": "Surgery",
+        "SpecialistID": 13
+      }
+    ]
+  }
+]
