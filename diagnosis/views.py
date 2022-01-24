@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
+from django.core.exceptions import ObjectDoesNotExist
 import requests
 import json
 
@@ -19,8 +20,7 @@ def diagnosis(request):
         symptoms_2 = request.POST.get('symptoms_1')
         symptoms_3 = request.POST.get('symptoms_2')
 
-        symptoms = []
-        symptoms.append(symptoms_1)
+        symptoms = [symptoms_1]
         # check for 2nd Symptoms
         if symptoms_2 != 'Select Symptoms':
             symptoms.append(symptoms_2)
@@ -53,14 +53,18 @@ def diagnosis(request):
         diagnosis_result = response.text
         diag_response = json.loads(diagnosis_result)
 
-        context = {
-            # Get top diagnosis for now
-            # TODO: Find a way to loop through all
-            "name": diag_response[0]["Issue"]["Name"],
-            "icd_name": diag_response[0]["Issue"]["IcdName"],
-            "pro_name": diag_response[0]["Issue"]["ProfName"]
-        }
-        return render(request, 'diagnosis/symptons_form.html', context)
+        name = []
+        icd_name = []
+        pro_name = []
+
+        for x in range(0, len(diag_response)):
+            name.append(diag_response[x]["Issue"]["Name"])
+            icd_name.append(diag_response[x]["Issue"]["IcdName"])
+            pro_name.append(diag_response[x]["Issue"]["ProfName"])
+
+        diagnosis_list = zip(name, icd_name, pro_name)
+
+        return render(request, 'diagnosis/symptons_form.html', {"diagnosis": diagnosis_list})
 
 
 

@@ -27,4 +27,4 @@ class PaymentForm(ModelForm):
 
     class Meta:
         model = BillingInformation
-        fields = ('email', 'phone', 'price')
+        fields = ('email', 'phone', 'price', 'payment_method')

@@ -4,12 +4,20 @@ from datetime import timedelta, date
 import string, random
 
 
+# Payment Options
+PAYMENT_OPTIONS = (
+    ('ecocash', 'ECOCASH'),
+    ('onemoney', 'ONE-MONEY'),
+)
+
+
 class BillingInformation(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     email = models.EmailField()
-    phone = models.CharField(max_length=10, help_text='Ecocash Number - (e.g. 0776887606')
+    phone = models.CharField(max_length=10, help_text='Mobile Number - (e.g. 0776887606')
     paid_on = models.DateTimeField(auto_now_add=True)
     price = models.IntegerField(default=1)
+    payment_method = models.CharField(max_length=10, choices=PAYMENT_OPTIONS, default='ecocash')
     expire_date = models.DateField()
     reference_code = models.TextField()
     # Paynow Variables
