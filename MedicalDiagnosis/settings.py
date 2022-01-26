@@ -195,3 +195,7 @@ paynow = Paynow(
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())
+
+#TODO: 1. Use the Modern Django Administration Template
+# 2. Change the Django Admin Wording
+# 3. Find a proper name for this application
