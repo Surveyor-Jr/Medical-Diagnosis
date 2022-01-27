@@ -189,8 +189,8 @@ SOCIAL_AUTH_ARCGIS_SECRET = env('ARCGIS_SECRET')
 paynow = Paynow(
     env('PAYNOW_ID'),
     env('PAYNOW_KEY'),
-    'http://localhost:8000/account/billing',
-    'http://localhost:8000/account/billing'
+    'https://medi-diagnosis.herokuapp.com/account/billing',
+    'https://medi-diagnosis.herokuapp.com/account/billing'
     )
 
 # Activate Django-Heroku.
