@@ -59,13 +59,13 @@ def pay_subscription(request):
                 # Payment Status
                 # instructions = response.instructions #TODO: What does this really do?
 
+                # Give time for user to pay
+                time.sleep(30)
+
                 # Check status of transaction
                 status = paynow.check_transaction_status(poll_url)  # TODO: Check Payment State Before saving
 
                 if status.paid:
-
-                    time.sleep(30)
-
                     # Save the data to the DB
                     instance = form.save(commit=False)
                     instance.user = request.user  # attach user profile
@@ -73,13 +73,12 @@ def pay_subscription(request):
                     instance.payment_status = status  # Paynow Variable
                     instance.payment_method = payment_method
                     instance.save()
-                    # Tell user it was great
-                    messages.success(request, f"You subscription worth {price} has been paid successfully")
-                    return redirect('billing')
 
-                else:
-                    messages.info(request, "The transaction has failed.")
-                    return redirect('make-payment')
+                # Give the user a response
+                messages.info(request, f"Payment Status: {status.status}")
+                return redirect('billing')
+
+
 
     else:
         form = PaymentForm()

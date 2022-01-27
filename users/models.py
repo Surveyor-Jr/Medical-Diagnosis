@@ -25,7 +25,7 @@ class BillingInformation(models.Model):
     payment_status = models.TextField(null=True)
 
     def __str__(self):
-        return self.user
+        return str(self.user)
 
     class Meta:
         verbose_name_plural = 'Billing Information'
