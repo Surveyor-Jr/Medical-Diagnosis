@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <div class="container">
+        <div class="card mb-4">
+            <img src="{% static 'assets/images/medication_drugs_cover.svg' %}" class="card-img-top" height="150"
+                 alt="Wild Landscape"/>
+            <div class="card-body">
+                <h5 class="card-title text-center">Search for Medication (Drugs)</h5>
+                <p class="card-text">
+                    This facility is only provide you with an overview of what you might need in order to cure your
+                    possible diagnosis.
+                    We do not endorse the use of this service to replace expert medical advice from professional
+                    Doctors. The tool serves as a
+                    guide to the general public on issues Health wise
+                </p>
+            </div>
+        </div>
+
+        {# Start Search Button #}
+        <form action="{% url 'search-for-drug' %}" method="GET">
+            <div class="input-group justify-content-center mb-6">
+                <div class="form-outline">
+                    <input id="search-input" name="drug_search" type="search" id="form1" class="form-control"/>
+                    <label class="form-label" for="form1">Search</label>
+                </div>
+                <button id="search-button" type="button" class="btn btn-primary">
+                    <i class="fas fa-search"></i>
+                </button>
+
+            </div>
+        </form>
+        {# End Search Button #}
+
+        {# start of search result #}
+        <div class="row">
+            <div class="col-md-4">
+                <h3 class="text-muted">Medication</h3>
+                <div class="list-group justify-content-center mb-4">
+                    {% for drug_name in drug_name %}
+                        <a type="button" class="list-group-item list-group-item-action">
+                            {{ drug_name.0 }}
+                            <span class="badge bg-primary">{{ drug_name.1 }}</span>
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-md-8">
+                <h3>Drug Information</h3>
+                <div class="d-flex align-items-center">
+                    <strong>Coming Soon...</strong>
+                    <p><small>We are working to bring this feature to life.</small></p>
+                    <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
+                </div>
+            </div>
+        </div>
+        {# end of search result  #}
+
+    </div>
+
+{% endblock %}
+

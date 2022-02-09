@@ -93,19 +93,22 @@
                                 </div>
                                 <div class="accordion-body">
                                     <strong>Professional Name</strong>: {{ diagnosis.2 }}
-
+                                </div>
+                                <div class="accordion-body">
+                                    <a href="{% url 'search-for-drug' %}?drug_search={{ diagnosis.2 }}" type="button"
+                                       class="btn btn-dark">Find Drug</a>
                                 </div>
                             </div>
                         </div>
 
                     </div>
-{#TODO: Find a way to display the no results returned message                    <!-- When there is no diagnosis -->#}
-{#                {% empty %}#}
-{#                    <div class="alert alert-dark" role="alert">#}
-{#                        Unfortunately according to your set of symptoms, no possible diagnosis was determined by the system. <br>#}
-{#                    Consider visiting a physcian right away instead. Use <a href="#">This map </a> to locate one near you.#}
-{#                    </div>#}
-{#                    <!-- End When there is not diagnosis -->#}
+                    {#TODO: Find a way to display the no results returned message                    <!-- When there is no diagnosis -->#}
+                    {#                {% empty %}#}
+                    {#                    <div class="alert alert-dark" role="alert">#}
+                    {#                        Unfortunately according to your set of symptoms, no possible diagnosis was determined by the system. <br>#}
+                    {#                    Consider visiting a physcian right away instead. Use <a href="#">This map </a> to locate one near you.#}
+                    {#                    </div>#}
+                    {#                    <!-- End When there is not diagnosis -->#}
                 {% endfor %}
                 <!-- end diagnosis results -->
             </div>
