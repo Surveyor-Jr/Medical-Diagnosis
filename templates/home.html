@@ -7,7 +7,7 @@
       <p class="lead mb-4">Feeling unwell? Diagnose yourself based on your symptoms just to check what you might be experiencing. </p>
       <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
         <a href="{% url 'symptom-check' %}" type="button" class="btn btn-primary btn-lg px-4 me-sm-3">Run Diagnosis</a>
-        <button type="button" class="btn btn-outline-secondary btn-lg px-4">Learn More</button>
+        <a href="{% url 'about' %}" type="button" class="btn btn-outline-secondary btn-lg px-4">Learn More</a>
       </div>
     </div>
     <div class="overflow-hidden" >
@@ -16,6 +16,5 @@
       </div>
     </div>
   </div>
-
 
 {% endblock content %}
