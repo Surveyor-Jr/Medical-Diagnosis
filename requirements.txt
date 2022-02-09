@@ -9,6 +9,7 @@ Django==4.0.1
 django-crispy-forms==1.13.0
 django-environ==0.8.1
 django-heroku==0.3.1
+django-static-fontawesome==5.14.0.0
 gunicorn==20.1.0
 idna==3.3
 oauthlib==3.1.1
