@@ -77,3 +77,30 @@ def run_diagnosis(request) -> object:
 
     return render(request, 'diagnosis/symptons_form.html', {"diagnosis": diagnosis_list})
 
+
+def search_for_drug(request) -> object:
+    """
+    Using the Disease Drug Matching API to find
+    drugs to cure the probable diagnosis
+    """
+    drug = request.GET.get('drug_search')
+
+    # Start using API
+    url = '{}{}'.format(settings.DISEASE_DRUG_MATCHING_URL, drug) # combine search key word with API url
+
+    response = requests.request("GET", url, headers=settings.DISEASE_DRUG_MATCHING_HEADERS)
+
+    drug_result = response.text
+    drug_response = json.loads(drug_result)
+
+    drug_name = []  # list of the drugs
+    drug_id = []
+
+    for x in range(0, len(drug_response)):
+        drug_name.append(drug_response[x]["drug"])
+        drug_id.append(drug_response[x][""])
+
+    drug_list = zip(drug_name, drug_id)
+
+    return render(request, 'diagnosis/search_for_drugs.html', {"drug_name": drug_list})
+

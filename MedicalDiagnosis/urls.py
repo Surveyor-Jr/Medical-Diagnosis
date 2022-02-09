@@ -25,7 +25,16 @@ from users.forms import LoginForm
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', diagnosis.home, name='home-page'),
-    path('diagnosis/', diagnosis.diagnosis, name='symptom-check'),
+    path('diagnosis/', include('diagnosis.urls')),
+    # start Static-Pages
+    path('about/', diagnosis.About, name='about'),
+    path('pricing/', diagnosis.Pricing, name='pricing'),
+    path('faq/', diagnosis.FAQ, name='faq'),
+    path('terms-and-conditions/', diagnosis.TermsConditions, name='terms-and-conditions'),
+    path('privacy-policy/', diagnosis.PrivacyPolicy, name='privacy-policy'),
+    path('disclaimer/', diagnosis.Disclaimer, name='disclaimer'),
+    # end Static-Pages
+    path('diagnosis/', diagnosis.diagnosis, name='symptom-check'), # include all urls in the diagnosis app
     # Auth Views
     path('register/', user_views.register, name='register'),
     path('login/', auth_views.LoginView.as_view(template_name='users/login.html'), {'form': LoginForm}, name='login'),

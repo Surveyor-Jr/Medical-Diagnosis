@@ -46,8 +46,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'diagnosis.apps.DiagnosisConfig',
     'users.apps.UsersConfig', # Auth Application
+    # Custom apps
     'crispy_forms',
     'social_django', # for social login
+    'django_static_fontawesome',
 ]
 
 MIDDLEWARE = [
@@ -147,6 +149,13 @@ DIAGNOSIS_HEADERS = {
             'x-rapidapi-host': env('DIAGNOSIS_API_HOST'),
             'x-rapidapi-key': env('DIAGNOSIS_API_KEY')
         }
+
+# Configure Disease Drug Matching API
+DISEASE_DRUG_MATCHING_URL = env('DISEASE_DRUG_MATCHING_URL')
+DISEASE_DRUG_MATCHING_HEADERS = {
+            'x-rapidapi-host': env('DISEASE_DRUG_MATCHING_HOST'),
+            'x-rapidapi-key': env('DISEASE_DRUG_MATCHING_KEY')
+}
 
 # Crispy-Forms-Config
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
